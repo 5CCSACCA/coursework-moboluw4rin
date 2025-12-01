@@ -33,8 +33,8 @@ User Upload → YOLO11n → Data Processing → BitNet → FastAPI API → JSON 
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/5CCSACCA/coursework-moboluw4rin/bias-detection-saas.git
-cd bias-detection-saas
+git clone https://github.com/5CCSACCA/coursework-moboluw4rin.git
+cd coursework-moboluw4rin
 ```
 ### 2. Build Docker Images
 ```bash
