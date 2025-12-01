@@ -21,8 +21,7 @@ User Upload → YOLO11n → Data Processing → BitNet → FastAPI API → JSON 
 - `main` branch: contains final, production-ready code.  
 - `develop` branch: ongoing development.  
 - `feature/*`: individual features.  
-- `release/*` and `hotfix/*`: optional for testing and fixes.  
-- All pull requests must be merged into `develop` before release to `main`.
+- All pull requests must be merged into `dev` before release to `main`.
 
 ## Installation & Deployment on Linux
 
