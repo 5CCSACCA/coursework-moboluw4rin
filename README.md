@@ -1,4 +1,3 @@
-# coursework-moboluw4rin
 coursework-moboluw4rin created by GitHub Classroom
 # SaaS Prototype - Bias detection in Facial Image Recognition for SKin Tones
 
@@ -15,3 +14,54 @@ This project centres around AI ethics, specifically algorithmic bias against dar
 - Uses an LLM to generate a text summary of potential bias patterns.  
 - Fully containerized with Docker and Docker Compose for reproducibility.  
 - Lightweight and CPU-friendly: designed to run on 4 CPUs with 16GB RAM.
+
+## System Architecture
+User Upload → YOLO11n → Data Processing → BitNet → FastAPI API → JSON Output
+
+## GitFlow Guidelines
+- `main` branch: contains final, production-ready code.  
+- `develop` branch: ongoing development.  
+- `feature/*`: individual features.  
+- `release/*` and `hotfix/*`: optional for testing and fixes.  
+- All pull requests must be merged into `develop` before release to `main`.
+
+---
+
+## Installation & Deployment on Linux
+
+### Prerequisites
+- Linux machine with **Docker** and **Docker Compose** installed  
+- Python 3.10+ (for local scripts/testing)  
+- Git
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/yourusername/bias-detection-saas.git
+cd bias-detection-saas
+```
+### 2. Build Docker Images
+```bash
+./deploy_build.sh
+```
+
+### 3. Run the SaaS
+```bash
+./deploy_run.sh
+```
+
+## Example Usage 
+## Testing
+## Directory Structure
+```
+bias-detection-saas/
+│
+├── yolo/                  # YOLO service Dockerfile & scripts
+├── bitnet/                # BitNet service Dockerfile & scripts
+├── fastapi/               # FastAPI API Dockerfile & app code
+├── examples/              # Example images for testing
+├── tests/                 # Unit and integration tests
+├── docker-compose.yml     # Compose orchestration
+├── deploy_build.sh         # Script to build containers
+├── deploy_run.sh           # Script to run containers
+└── README.md
+```
