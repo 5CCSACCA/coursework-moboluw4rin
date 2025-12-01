@@ -1,8 +1,7 @@
-coursework-moboluw4rin created by GitHub Classroom
-# SaaS Prototype - Bias detection in Facial Image Recognition for SKin Tones
+# SaaS: Bias detection in Facial Image Recognition for SKin Tones
 
 ## Project Overview
-This project is a Software-as-a-Service (SaaS) prototype designed to detect racial bias in AI facial recognition models, focusig on skin tone representation. The system integrate:
+This project is a Software-as-a-Service (SaaS) prototype designed to detect racial bias in AI facial recognition models, focusing on skin tone representation. The system integrate:
 - YOLO: Detects faces in images, provides confidence scores and assigns a skin-tone label.
 - BitNet: Analyses detection results and produces a textual summary highlighting potential biases.
 - FastAPI: Serves both services as a single, user-friendly API.
@@ -25,8 +24,6 @@ User Upload → YOLO11n → Data Processing → BitNet → FastAPI API → JSON 
 - `release/*` and `hotfix/*`: optional for testing and fixes.  
 - All pull requests must be merged into `develop` before release to `main`.
 
----
-
 ## Installation & Deployment on Linux
 
 ### Prerequisites
@@ -36,17 +33,21 @@ User Upload → YOLO11n → Data Processing → BitNet → FastAPI API → JSON 
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/yourusername/bias-detection-saas.git
+git clone https://github.com/5CCSACCA/coursework-moboluw4rin/bias-detection-saas.git
 cd bias-detection-saas
 ```
 ### 2. Build Docker Images
 ```bash
 ./deploy_build.sh
+#!/bin/bash
+docker-compose build
 ```
 
 ### 3. Run the SaaS
 ```bash
 ./deploy_run.sh
+#!/bin/bash
+docker-compose up
 ```
 
 ## Example Usage 
