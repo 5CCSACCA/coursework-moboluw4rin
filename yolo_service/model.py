@@ -2,7 +2,7 @@ from ultralytics import YOLO
 
 class YOLOModel:
     def __init__(self):
-        # Load pretrained YOLO11n
+        #loads pretrained YOLO8n
         self.model = YOLO("yolov8n.pt")
 
     def predict(self, image_path):

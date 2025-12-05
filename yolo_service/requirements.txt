@@ -1,0 +1,6 @@
+ultralytics             #YOLOv8 models and utilities
+torch>=2.0.0            #pyTorch backend
+opencv-python           #image processing
+fastapi                 #exposing an API endpoint
+uvicorn                 #using FastAPI
+python-multipart        #endpoint accepts file uploads
