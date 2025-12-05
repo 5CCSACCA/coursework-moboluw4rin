@@ -1,0 +1,7 @@
+services:
+  bitnet-service:
+    build: .
+    container_name: bitnet-service
+    ports:
+      - "9002:9002"
+    restart: always
