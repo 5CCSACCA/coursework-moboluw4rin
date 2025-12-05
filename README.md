@@ -103,14 +103,5 @@ Main
 │   ├── app.py
 │   └── README.md
 │
-├── feature/database
-│   ├── docker-compose.yml
-│   ├── init.sql
-│   └── README.md
-│
-├── feature/firebase
-│   ├── firebase_config.json
-│   └── README.md
-│
 └── review-branch
 
