@@ -11,7 +11,7 @@ This SaaS tool provides:
 
 ## System Architecture
 The Desk Cleanliness Checker is a microservice-based SaaS project that uses:
-- YOLO (Ultralytics): to detect objects on a desk (cups, bottles, books, keyboards, laptops, food items, clutter objects, etc.)
+- YOLO (Ultralytics): to detect objects on a desk (cups, bottles, books, keyboards, laptops, food items etc.)
 - BitNet LLM (Microsoft): to interpret results, generate feedback, and provide study-habit suggestions
 - FastAPI Gateway: to coordinate YOLO + LLM services
 - Firebase: user authentication & cloud storage (optional)
