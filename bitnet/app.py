@@ -10,14 +10,7 @@ def root():
 
 @app.post("/analyse-text")
 def analyse_text(input_data: dict):
-    """
-    Input example:
-    {
-      "yolo_result": "Detected cup, bottle, book, clutter score 72"
-    }
-    """
-    prompt = f"You are an academic productivity assistant. Based on the following desk analysis, give feedback: {input_data['yolo_result']}"
-    
+    prompt = input_data["text"]
     response = llm.generate_text(prompt)
     return {"analysis": response}
 

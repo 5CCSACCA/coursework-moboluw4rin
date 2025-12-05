@@ -7,10 +7,5 @@ class BitNetModel:
 
     def generate_text(self, prompt: str) -> str:
         inputs = self.tokenizer(prompt, return_tensors="pt")
-        output = self.model.generate(
-            **inputs,
-            max_new_tokens=150,
-            do_sample=True,
-            temperature=0.7
-        )
+        output = self.model.generate(**inputs, max_new_tokens=100)
         return self.tokenizer.decode(output[0], skip_special_tokens=True)
