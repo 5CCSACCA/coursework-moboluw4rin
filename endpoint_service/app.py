@@ -13,11 +13,13 @@ async def analyse(file: UploadFile = File(...)):
     with open(file_location, "wb") as f:
         f.write(file.file.read())
 
-    # Call YOLO service
+    #Call YOLO service
+    #YOLO prediction
     yolo_response = requests.post(YOLO_SERVICE_URL, files={"image": open(file_location, "rb")})
     detected_objects = yolo_response.json()
 
-    # Call BitNet service
+    #Call BitNet service
+    #BitNet analysis
     llm_response = requests.post(BITNET_SERVICE_URL, json={"text": str(detected_objects)})
     analysis = llm_response.json()
 
