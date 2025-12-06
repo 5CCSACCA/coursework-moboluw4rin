@@ -24,6 +24,7 @@ Output:
 }
 Run with Docker
 ```
+```
 docker-compose up --build
 ```
 Runs on port 9002
