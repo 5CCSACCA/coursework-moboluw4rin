@@ -1,28 +1,28 @@
-# SaaS: Bias detection in Facial Image Recognition for SKin Tones
-
+# SaaS: Desk Cleanliness Checker – SaaS Microservices Application
 ## Project Overview
-This project is a Software-as-a-Service (SaaS) prototype designed to detect racial bias in AI facial recognition models, focusing on skin tone representation. The system integrate:
-- YOLO: Detects faces in images, provides confidence scores and assigns a skin-tone label.
-- BitNet: Analyses detection results and produces a textual summary highlighting potential biases.
-- FastAPI: Serves both services as a single, user-friendly API.
-This project centres around AI ethics, specifically algorithmic bias against darker-skinned women, and demonstrates how AI systems can be audited for fairness and transparency
+This project is a Software-as-a-Service (SaaS) prototype designed for Students! Students often struggle with staying organised while studying. Research suggests that a clean study environment reduces stress and improves focus.
 
 ## Features
-- Detects faces in images with bounding boxes and confidence scores.  
-- Aggregates confidence scores by skin tone categories.  
-- Uses an LLM to generate a text summary of potential bias patterns.  
-- Fully containerized with Docker and Docker Compose for reproducibility.  
-- Lightweight and CPU-friendly: designed to run on 4 CPUs with 16GB RAM.
+This SaaS tool provides:
+- Desk Object Detection
+- Cleanliness Scoring System
+- Study Habit Insights
+- Motivational and behavioural guidance
 
 ## System Architecture
-User Upload → YOLO11n → Data Processing → BitNet → FastAPI API → JSON Output
+The Desk Cleanliness Checker is a microservice-based SaaS project that uses:
+- YOLO (Ultralytics): to detect objects on a desk (cups, bottles, books, keyboards, laptops, food items etc.)
+- BitNet LLM (Microsoft): to interpret results, generate feedback, and provide study-habit suggestions
+- FastAPI Gateway: to coordinate YOLO + LLM services
+- Firebase: user authentication & cloud storage (optional)
+- Database: store analysis history
+- Docker + docker-compose: full microservices deployment
 
 ## GitFlow Guidelines
 - `main` branch: contains final, production-ready code.  
 - `develop` branch: ongoing development.  
 - `feature/*`: individual features.  
-- `release/*` and `hotfix/*`: optional for testing and fixes.  
-- All pull requests must be merged into `develop` before release to `main`.
+- All pull requests must be merged into `dev` before release to `main`.
 
 ## Installation & Deployment on Linux
 
@@ -33,8 +33,8 @@ User Upload → YOLO11n → Data Processing → BitNet → FastAPI API → JSON 
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/5CCSACCA/coursework-moboluw4rin/bias-detection-saas.git
-cd bias-detection-saas
+git clone https://github.com/5CCSACCA/coursework-moboluw4rin.git
+cd coursework-moboluw4rin
 ```
 ### 2. Build Docker Images
 ```bash
@@ -50,19 +50,58 @@ docker-compose build
 docker-compose up
 ```
 
-## Example Usage 
-## Testing
+## How it works: Example Usage 
+YOLO Service
+
+- Receives an uploaded image
+- Detects objects (cups, bottles, books, laptops, snacks, clutter)
+- Returns JSON containing bounding boxes + classes
+- Computes a basic clutter score
+
+Example return: 
+```
+{
+  "objects": ["cup", "bottle", "laptop", "book"],
+  "clutter_score": 72
+}
+```
+BitNet LLM Service
+
+Receives the JSON from YOLO and generates:
+
+- Cleanliness explanation
+- Study habit advice
+- Optional productivity motivation
+
+Example:
+
+“Your desk is moderately cluttered with cups, bottles, and loose items. Try removing drink containers and grouping books together to improve focus.”
+
 ## Directory Structure
 ```
-bias-detection-saas/
+Main
 │
-├── yolo/                  # YOLO service Dockerfile & scripts
-├── bitnet/                # BitNet service Dockerfile & scripts
-├── fastapi/               # FastAPI API Dockerfile & app code
-├── examples/              # Example images for testing
-├── tests/                 # Unit and integration tests
-├── docker-compose.yml     # Compose orchestration
-├── deploy_build.sh         # Script to build containers
-├── deploy_run.sh           # Script to run containers
-└── README.md
-```
+├── feature/yolo
+│   ├── Dockerfile
+│   ├── docker-compose.yml
+│   ├── requirements.txt
+│   ├── main.py
+│   ├── model.py
+│   └── README.md
+│
+├── feature/bitnet
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   ├── docker-compose.yml
+│   ├── app.py
+│   └── README.md
+│
+├── feature/fastapi
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   ├── docker-compose.yml
+│   ├── app.py
+│   └── README.md
+│
+└── review-branch
+
