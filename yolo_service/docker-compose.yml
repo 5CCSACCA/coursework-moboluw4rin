@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  yolo-service:
+    build:
+      context: ./feature/yolo/yolo_service
+    container_name: yolo-service
+    ports:
+      - "9001:9001"
+    restart: unless-stopped
+
+  bitnet-service:
+    build:
+      context: ./feature/bitnet/bitnet_service
+    container_name: bitnet-service
+    ports:
+      - "9002:9002"
+    restart: unless-stopped
