@@ -12,7 +12,7 @@ firebase_admin.initialize_app(cred)
 # get firestore client
 db = firestore.client()
 
-# save a detection record
+# save a detection record, stores a single detected object
 def save_detection(label, confidence, x1, y1, x2, y2, image_path):
     doc_ref = db.collection("detections").document()
     doc_ref.set({
@@ -47,8 +47,3 @@ def edit_doc_data(doc_id, new_info):
 def delete_doc_data(doc_id):
     doc_ref = db.collection("detections").document(doc_id)
     doc_ref.delete()
-
-#prints all of the detetcions             
-docs = db.collection("detections").stream()
-for doc in docs:
-    print(f"{doc.id} => {doc.to_dict()}")
