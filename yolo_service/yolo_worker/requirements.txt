@@ -1,0 +1,7 @@
+pika==1.4.0
+firebase-admin
+ultralytics
+torch>=2.0.0
+Pillow
+fastapi
+uvicorn
