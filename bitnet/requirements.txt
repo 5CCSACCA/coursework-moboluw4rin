@@ -3,3 +3,5 @@ torch>=2.0.0
 fastapi
 uvicorn
 requests
+pydantic==2.5.1
+typing-extensions==4.8.0

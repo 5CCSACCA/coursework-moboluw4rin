@@ -1,16 +1,20 @@
 from fastapi import FastAPI
-from model import BitNetModel
+from model import BitNetModel, BitNetLLM
+from pydantic import BaseModel
 
-app = FastAPI()
+app = FastAPI(title="BitNet LLM Service")
 llm = BitNetModel()
+
+class FeedbackRequest(BaseModel):
+    cleanliness_score: int
+    detections: list   #list of dicts from YOLO ouput
 
 @app.get("/")
 def root():
     return {"message": "BitNet LLM service is running."}
 
-@app.post("/analyse-text")
-def analyse_text(input_data: dict):
-    prompt = input_data["text"]
-    response = llm.generate_text(prompt)
-    return {"analysis": response}
+@app.post("/generate")
+def generate_feedback(request: FeedbackRequest):
+    feedback = llm.generate_feedback(cleanliness_score=request.cleanliness_score, detections=request.detections)
+    return {"feedback": feedback}
 
